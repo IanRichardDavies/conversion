@@ -1,0 +1,10 @@
+name: pm-apps
+channels:
+  - defaults
+dependencies:
+  - pandas
+  - python=3.9
+  - plotly
+  - numpy
+  - jupyter
+  - pandoc
