@@ -4,10 +4,13 @@ Customer Conversion Analysis
 Quick Start
 -----------
 
-- Clone repo
+- Clone repo: `git clone https://github.com/IanRichardDavies/conversion.git`
+- Change into `conversion` directory: `cd conversion`
 - Install environment using conda: `conda env create -f environment.yml`
 - Activate environment: `conda activate conversion`
+- Start local jupyter server: `jupyter notebook`
 - Open template notebook: `dashboard_template.ipynb`
+- One important note: for privacy reasons, no data is stored in this repo. Users will have to "bring their own data".
 
 
 Assumptions Used
@@ -52,10 +55,11 @@ Future Enhancements
 
 This analysis can be improved with the following enhancements:
 
-- Unit test suite to verify that implementation properly reflects intent.
+ Unit test suite to verify that implementation properly reflects intent.
 - Improved repo structure to enable easier distribution, installation, and use.
 - Ground assumptions on historical company data.
 - Increased sample size over a longer time period to understand the difference in behavior between vintages.
-- Change visualization from plotly to Dash app to better enable filtering and the combination of several segments within a view.
-- If available, include more fields in the dataset.
+- Change visualization from plotly to a Dash app to better enable filtering and the combination of several segments within a view.
+- If available, include more application-level data in the dataset. These fields hold potential for future analysis: device type of session, user home-owner status, province, user family info. One open-ended question to consider is how can we benefit from an open-banking data sharing regime?
 - Understand the payment structure in each channel (for example: do we pay affiliates a bounty per policy purchased?  Or application submitted?)
+- Understand what current tests, if any, are running. In addition, compile a testing "wish-list" fromt the growth team to determine what data we can collect/analyze to better position the success of future A/B tests.
