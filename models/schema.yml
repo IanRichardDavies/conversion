@@ -1,0 +1,57 @@
+models:
+  - name: conversion_models
+    columns:
+      - name: record_id
+        description: Primary key of applications table; unique identifier of an application.
+        tests:
+          - unique
+          - not_null
+      - name: policy_num
+        description: Unique identifier of a policy.
+        tests:
+          - unique:
+      - name: product_type
+        description: Type of product; term life or critical illness.
+        tests:
+          - not_null
+      - name: application_started
+        description: Binary indicator of whether application was started.
+        tests:
+          - not_null
+          - accepted_values:
+              values: [1, 0]
+      - name: application_completed
+        description: Binary indicator of whether application was completed.
+        tests:
+          - not_null
+          - accepted_values:
+              values: [1, 0]
+      - name: application_approved
+        description: Binary indicator of whether application was approved.
+        tests:
+          - not_null
+          - accepted_values:
+              values: [1, 0]
+      - name: policy_purchased
+        description: Binary indicator of whether policy was purchased.
+        tests:
+          - not_null
+          - accepted_values:
+              values: [1, 0]
+      - name: lead_source
+        description: Name of source channel for the application.
+        tests:
+          - not_null
+      - name: user_gender
+        description: Gender of applicant.
+        tests:
+          - not_null
+      - name: user_income
+        description: Income bucket of applicant.
+        tests:
+          - not_null
+      - name: user_age
+        description: Age bucket of applicant.
+        tests:
+          - not_null
+      
