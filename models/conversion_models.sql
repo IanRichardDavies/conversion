@@ -36,6 +36,7 @@ policies AS (
         ELSE 0
     END AS policy_purchased
     ,policy_length * 12 AS num_premiums
+    ,monthly_premiums
     ,policy_length * 12 * monthly_premiums AS gross_premiums
     ,coverage
     ,premium_class
