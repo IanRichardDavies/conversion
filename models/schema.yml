@@ -9,7 +9,7 @@ models:
       - name: policy_num
         description: Unique identifier of a policy.
         tests:
-          - unique:
+          - unique
       - name: product_type
         description: Type of product; term life or critical illness.
         tests:
