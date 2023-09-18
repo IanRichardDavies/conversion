@@ -35,8 +35,18 @@ policies AS (
         WHEN purcase_date IS NOT NULL THEN 1
         ELSE 0
     END AS policy_purchased
-    ,policy_length * 12 AS num_premiums
-    ,policy_length * 12 * monthly_premiums AS gross_premiums
+    ,CASE
+        WHEN policy_length IS NOT NULL THEN policy_length * 12
+        ELSE 0
+    END AS num_premiums
+    ,CASE
+        WHEN monthly_premiums IS NOT NULL THEN monthly_premiums
+        ELSE 0
+    END AS monthly_premiums
+    ,CASE
+        WHEN policy_length IS NOT NULL THEN policy_length * 12 * monthly_premiums
+        ELSE 0
+    END AS gross_premiums
     ,coverage
     ,premium_class
     FROM conversion-398901.google_drive_data.policies
@@ -67,9 +77,10 @@ users AS (
 conversion AS (
     SELECT 
     apps.*
-    ,policies.policy_purchased
-    ,policies.num_premiums
-    ,policies.gross_premiums
+    ,IFNULL(policies.policy_purchased, 0) AS policy_purchased
+    ,IFNULL(policies.num_premiums, 0) AS num_premiums
+    ,IFNULL(policies.monthly_premiums, 0) AS monthly_premiums
+    ,IFNULL(policies.gross_premiums, 0) AS gross_premiums
     ,policies.coverage
     ,policies.premium_class
     ,users.user_gender
