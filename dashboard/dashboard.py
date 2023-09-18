@@ -2,14 +2,20 @@
 
 import logging
 import numpy as np
+import os
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
+from dotenv import load_dotenv
 from pandas.errors import SettingWithCopyWarning
 from typing import Any
 
 import warnings
 warnings.simplefilter(action='ignore', category=SettingWithCopyWarning)
+
+load_dotenv()
+
+PROJECT_ID = os.getenv("BQ_KEY")["project_id"]
 
 
 class Dashboard:
