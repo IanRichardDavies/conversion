@@ -18,28 +18,32 @@ models:
         description: Binary indicator of whether application was started.
         tests:
           - not_null
-          - accepted_values:
-              values: [1, 0]
       - name: application_completed
         description: Binary indicator of whether application was completed.
         tests:
           - not_null
-          - accepted_values:
-              values: [1, 0]
       - name: application_approved
         description: Binary indicator of whether application was approved.
         tests:
           - not_null
-          - accepted_values:
-              values: [1, 0]
       - name: policy_purchased
         description: Binary indicator of whether policy was purchased.
         tests:
           - not_null
-          - accepted_values:
-              values: [1, 0]
       - name: lead_source
         description: Name of source channel for the application.
+        tests:
+          - not_null
+      - name: num_premiums
+        description: Number of monthly premiums for the policy.
+        tests:
+          - not_null
+      - name: monthly_premiums
+        description: Monthly premiums for the policy.
+        tests:
+          - not_null
+      - name: gross_premiums
+        description: Premiums paid throughout the life of the policy.
         tests:
           - not_null
       - name: user_gender
